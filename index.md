@@ -10,7 +10,7 @@ Just make sure to keep a line break between the markdown tags and the style/scri
 
 * ,*::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
-html { font-size: 100%; }
+html { font-size: 105%; }
 html,
 body {
 height: 100%;
@@ -30,7 +30,6 @@ margin: 0 auto;
 line-height: 1.5;
 }
 main {
-height: 100%;
 display: flex;
 justify-content: flex-start;
 flex-direction: column;
@@ -83,26 +82,31 @@ h6 { font-size: 0.563rem; }
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 margin-bottom: 1em;
+width: 100%;
+text-align: left;
+border-top: 1px dashed #000;
 }
+h1{border-top: none;}
 p{
 	margin-bottom: 2rem;
 }
 
 pre{
-background: #f5f5f5;
+background:#fcfcfc;
 
 width: 100%;
-padding: 1rem;
-border: 1px solid #ddd;
-
-	height: 100%;
+border-left: 1px dashed #000;
+margin-bottom: 2rem;
+font-size: 0.89rem;
 
 }
 
 code {
-background: #f5f5f5;
-font-size: 0.9rem;
-font-family: 'Courier New', Courier, monospace;
+background: #fcfcfc;
+/* Monospace Slab Serif */
+font-family: 'Nimbus Mono PS', 'Courier New', monospace;
+font-weight: normal;
+font-size: 1.15rem;
 white-space: pre-wrap;
 overflow-wrap: break-word;
 }
@@ -117,6 +121,11 @@ li >p {
 	margin-bottom: 0.5rem;
 }
 
+footer{
+	font-size: 0.8rem;
+	width: 100%;
+	text-align: center;
+}
 
 </style>
 
@@ -154,11 +163,11 @@ r = a * e^(b * theta)
 
 Where:
 
-- r is the distance from the center of the spiral
-- a is the initial distance from the center
-- b is the growth rate of the spiral
-- theta is the angle of the spiral
-- e is the base of the natural logarithm
+- `r` is the distance from the center of the spiral
+- `a` is the initial distance from the center
+- `b` is the growth rate of the spiral
+- `theta` is the angle of the spiral
+- `e` is the base of the natural logarithm
 - The spiral is drawn in polar coordinates, which means that the angle and distance from the center are used to draw the spiral.
 
 <div id="seashell" class="sketch">
@@ -262,3 +271,10 @@ source code for
 </div>
 
 </main>
+
+<footer>
+<p>
+Built with ❤︎ by <a href="https://github.com/ff6347">ff6347</a>
+</p>
+
+</footer>
