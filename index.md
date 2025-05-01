@@ -182,7 +182,7 @@ source code for
 
 ### Abstraction
 
-What if we use this formula not to draw a sprial but select colors on a color wheel?
+What if we use this formula not to draw a spiral but select colors on a color wheel?
 
 <div id="seashell-colors" class="sketch"></div>
 <script src="./assets/js/seashell-colors.js"></script>
