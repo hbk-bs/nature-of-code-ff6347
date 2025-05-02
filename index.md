@@ -5,16 +5,63 @@ It will be included into your html file
 Just make sure to keep a line break between the markdown tags and the style/script tags
 -->
 
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+
 <style>
+
+/* Define animatable custom property */
+@property --gradient-x {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
+/* reset.css derived from https://www.joshwcomeau.com/css/custom-css-reset/ */
 
 :root {
 	--canvas-width: 375px;
 	--max-width: 66ch;
 }
 
-* ,*::before, *::after { box-sizing: border-box; }
-* { margin: 0; }
-html { font-size: 105%; }
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+* {
+	margin: 0;
+}
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+
+html { font-size: 100%; }
 html,
 body {
 height: 100%;
@@ -22,6 +69,11 @@ height: 100%;
 /* Rounded Sans */
 font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
 font-weight: normal;
+}
+
+p{
+	hyphens: auto;
+	text-wrap: pretty;
 }
 
 body {
@@ -32,7 +84,7 @@ align-items: center;
 max-width: var(--max-width);
 margin: 0 auto;
 line-height: 1.5;
-padding: 1rem;
+padding: 1rlh;
 }
 main {
 display: flex;
@@ -47,38 +99,73 @@ border: 1px dashed #000;
 }
 canvas {
 	display: block;
+	max-width: 100%;
+	height: auto;
 }
 
 .code-link {
 	align-self: center;
 	display: flex;
 	justify-content: flex-end;
-	width: var(--canvas-width);
-	margin-bottom: 2rem;
+	width: 100%;
+	max-width: var(--canvas-width);
+	margin-bottom: 1rlh;
+	font-size: 0.8rem;
 }
 
 img {
+	width: 100%;
 	max-width: var(--canvas-width);
-	width: var(--canvas-width);
 	height: auto;
 	display: block;
 	align-self: center;
-border: 1px dashed #000;
+	border: 1px dashed #000;
 	margin-bottom: 0;
-	
 }
 
 p:has(img) {
 	align-self: center;
-	margin-bottom: 2rem;
-
+	margin-bottom: 1rlh;
+	width: 100%;
+	max-width: var(--canvas-width);
 }
 
 /** 1.333 - perfect forth  */
 
-h1 { font-size: 2.369rem;
-
+h1 {
+	font-size: 2.369rem;
+	position: relative; /* Needed for pseudo-element positioning */
+	color: #333; /* Ensure main text has a color */
 }
+
+/* Gradient shadow */
+h1::before {
+	content: attr(data-text);
+	position: absolute;
+	top: 2px; /* Shadow offset */
+	left: 2px; /* Shadow offset */
+	z-index: -1;
+
+	/* Use custom property for position */
+	background: radial-gradient(circle at var(--gradient-x) 50%, hsl(204, 98%, 60%), hsl(38, 100%, 60%)); 
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+
+	/* Apply animation */
+	animation: moveGradientCenter 3s ease-in-out infinite alternate; /* Adjust timing/iteration */
+}
+
+/* Keyframes to animate the custom property */
+@keyframes moveGradientCenter {
+	from {
+		--gradient-x: 0%;
+	}
+	to {
+		--gradient-x: 100%;
+	}
+}
+
 h2 { font-size: 1.777rem; }
 h3 { font-size: 1.333rem; }
 h4 { font-size: 1rem; }
@@ -87,14 +174,14 @@ h6 { font-size: 0.563rem; }
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
-margin-bottom: 1em;
-width: 100%;
-text-align: left;
-border-top: 1px dashed #000;
+	margin-bottom: 1rlh;
+	width: 100%;
+	text-align: left;
+	border-top: 1px dashed #000;
 }
 h1{border-top: none;}
 p{
-	margin-bottom: 2rem;
+	margin-bottom: 1rlh;
 }
 
 pre{
@@ -102,8 +189,8 @@ background:#fcfcfc;
 
 width: 100%;
 border-left: 1px dashed #000;
-margin-bottom: 2rem;
-font-size: 0.89rem;
+margin-bottom: 1rlh;
+font-size: 0.89rlh;
 
 }
 
@@ -118,17 +205,17 @@ overflow-wrap: break-word;
 }
 
 ul{
-	margin-bottom: 2rem;
-	padding-left: 2rem;
+	margin-bottom: 1rlh;
+	padding-left: 1rlh;
 	list-style: disc;
 }
 
 li >p {
-	margin-bottom: 0.5rem;
+	margin-bottom: 0.5rlh;
 }
 
 footer{
-	font-size: 0.8rem;
+	font-size: 0.8rlh;
 	width: 100%;
 	text-align: center;
 }
@@ -138,7 +225,7 @@ footer{
 <main>
 <script src="lib/p5.min.js"></script>
 
-# Excursion digicom 2025
+<h1 data-text="Excursion DigiCom 2025">Excursion DigiCom 2025</h1>
 
 _**(The Natrue of Code)**_
 
@@ -228,7 +315,7 @@ source code for
 </p>
 </div>
 
-Here we use a algorithm inspired by Jer Thorp's "Branching Substrate" to draw a tree. Our tree consists of a list of branches. We have several parameters to control the growth of the tree. How many generations can a branch have? Does it grow upwards or downwards? How long can a branch be?
+Here we use a algorithm inspired by J. Tarbell's "Branching Substrate" to draw a tree. Our tree consists of a list of branches. We have several parameters to control the growth of the tree. How many generations can a branch have? Does it grow upwards or downwards? How long can a branch be?
 
 
 ## Icecream
@@ -254,7 +341,7 @@ Where:
 - The curve is never linear - small temperature changes at higher temperatures cause larger changes in consumption than the same changes at lower temperatures
 
 This model makes intuitive sense for ice cream if ⁠b > 0, as people typically consume more ice cream in warmer weather, with consumption accelerating rapidly on very hot days.
-This
+
 
 <div id="icecream" class="sketch"></div>
 <script src="./assets/js/icecream.js"></script>
@@ -284,3 +371,52 @@ Built with ❤︎ by <a href="https://github.com/ff6347">ff6347</a>
 </p>
 
 </footer>
+
+<script>
+
+function scrambleTitle(originalTitle, duration = 1000) {
+  const chars = '!?<>-_#D_i_g_i_C_o_m_E_x_c_u_r_s_i_o_n_2_0_2_5'; // Characters to use for scrambling
+  let intervalId;
+  let timeoutId;
+
+  const scramble = () => {
+    let scrambled = '';
+    for (let i = 0; i < originalTitle.length; i++) {
+      // Add a chance to keep original character for smoother effect
+      if (Math.random() < 0.15 && intervalId) {
+         scrambled += originalTitle[i];
+      } else {
+        scrambled += chars[Math.floor(Math.random() * chars.length)];
+      }
+    }
+    document.title = `DigiCom: ${scrambled}`;
+  };
+
+  // Start scrambling
+  intervalId = setInterval(scramble, 50); // Adjust interval for scramble speed
+
+  // Stop scrambling and restore title after duration
+  timeoutId = setTimeout(() => {
+    clearInterval(intervalId);
+    intervalId = null; // Clear intervalId flag
+    document.title = originalTitle;
+  }, duration);
+}
+
+// --- Integration into your existing script ---
+document.addEventListener('DOMContentLoaded', function() {
+  const originalTitle = "DigiCom: Excursion 2025";
+  document.title = originalTitle; // Set initial title
+
+  // Example: Scramble title once after 2 seconds
+  setInterval(() => {
+     scrambleTitle(originalTitle, 1000); // Scramble for 1 second
+  }, 5000);
+
+  // Remove the previous setInterval that just reset the title
+  // setInterval(function() {
+  //  document.title = originalTitle;
+  // }, 1000);
+});
+
+</script>
