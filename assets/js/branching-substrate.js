@@ -67,7 +67,7 @@
 		}
 
 		p.setup = () => {
-			p.createCanvas(400, 400); // Increased canvas size
+			p.createCanvas(375, 375); // Increased canvas size
 			p.background(255);
 			p.stroke(0, 0, 0, 180); // Black with some transparency
 

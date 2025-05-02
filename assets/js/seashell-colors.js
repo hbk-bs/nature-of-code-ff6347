@@ -9,7 +9,7 @@
 	const s = (p) => {
 		p.setup = () => {
 			p.colorMode(p.HSL);
-			const canvas = p.createCanvas(400, 400);
+			const canvas = p.createCanvas(375, 375);
 
 			p.angleMode(p.RADIANS);
 			p.background(255);

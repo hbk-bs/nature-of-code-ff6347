@@ -1,7 +1,7 @@
 {
 	const s = (p) => {
 		p.setup = () => {
-			p.createCanvas(400, 400);
+			p.createCanvas(375, 375);
 			p.angleMode(p.DEGREES);
 			p.background(255);
 			p.stroke(0);

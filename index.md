@@ -7,6 +7,10 @@ Just make sure to keep a line break between the markdown tags and the style/scri
 
 <style>
 
+:root {
+	--canvas-width: 375px;
+	--max-width: 66ch;
+}
 
 * ,*::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
@@ -25,9 +29,10 @@ display: flex;
 flex-direction: column;
 justify-content: flex-start;
 align-items: center;
-max-width: 66ch;
+max-width: var(--max-width);
 margin: 0 auto;
 line-height: 1.5;
+padding: 1rem;
 }
 main {
 display: flex;
@@ -48,12 +53,13 @@ canvas {
 	align-self: center;
 	display: flex;
 	justify-content: flex-end;
-	width: 400px;
+	width: var(--canvas-width);
 	margin-bottom: 2rem;
 }
 
 img {
-	width: 400px;
+	max-width: var(--canvas-width);
+	width: var(--canvas-width);
 	height: auto;
 	display: block;
 	align-self: center;
